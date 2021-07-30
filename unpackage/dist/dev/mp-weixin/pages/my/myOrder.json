@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "全部订单",
+  "navigationBarBackgroundColor": "#F1F1F1",
+  "usingComponents": {
+    "all-order-nav": "/components/my/allOrderNav",
+    "recommended": "/components/details/recommended"
+  }
+}

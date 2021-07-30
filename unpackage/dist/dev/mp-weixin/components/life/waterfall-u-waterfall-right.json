@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "waterfall-u-waterfall-right": "/components/life/waterfall-u-waterfall-right",
+    "u-waterfall": "/node-modules/uview-ui/components/u-waterfall/u-waterfall",
+    "u-lazy-load": "/node-modules/uview-ui/components/u-lazy-load/u-lazy-load"
+  }
+}

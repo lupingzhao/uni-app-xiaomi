@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "购物车",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-empty": "/node-modules/uview-ui/components/u-empty/u-empty",
+    "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast",
+    "car-goods": "/components/car/carGoods",
+    "recommended": "/components/details/recommended"
+  }
+}

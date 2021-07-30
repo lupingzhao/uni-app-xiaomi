@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-sticky": "/node-modules/uview-ui/components/u-sticky/u-sticky",
+    "scroll-content": "/components/scrollContent"
+  }
+}

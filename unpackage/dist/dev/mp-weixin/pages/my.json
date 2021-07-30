@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "我的",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-modal": "/node-modules/uview-ui/components/u-modal/u-modal",
+    "order": "/components/my/order",
+    "myfunction": "/components/my/myfunction",
+    "more": "/components/my/more",
+    "recommended": "/components/details/recommended"
+  }
+}

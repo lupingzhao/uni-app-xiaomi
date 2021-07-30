@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "u-cell-item": "/node-modules/uview-ui/components/u-cell-item/u-cell-item",
+    "u-rate": "/node-modules/uview-ui/components/u-rate/u-rate"
+  },
+  "component": true
+}

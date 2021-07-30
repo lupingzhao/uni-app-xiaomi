@@ -1,0 +1,54 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/details/goodsDetails",
+          "pathName": "pages/details/goodsDetails",
+          "query": "gid=138751",
+          "scene": null
+        },
+        {
+          "name": "pages/details/evaluation",
+          "pathName": "pages/details/evaluation",
+          "query": "gid=110497",
+          "scene": null
+        },
+        {
+          "name": "pages/life",
+          "pathName": "pages/life",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/searchView",
+          "pathName": "pages/index/searchView",
+          "query": "value=1",
+          "scene": null
+        },
+        {
+          "name": "pages/my",
+          "pathName": "pages/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/car",
+          "pathName": "pages/car",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

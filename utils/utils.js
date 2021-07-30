@@ -1,0 +1,101 @@
+// 封装公共的方法
+export default {
+  // 保存历史记录
+  saveHistory({
+    key,
+    data,
+    attr
+  }) {
+    // key是名字 data是保存的数据, 
+    // attr是属性名 用来判断是否重复 属性名是一个字符串 不是变量
+    //  让名字格式化
+    let name = key + 'History'
+    // 获取该名字的记录	
+	let history = uni.getStorageSync(name)
+    // 无数据为null 或undefind
+    // 存储获取到的值
+    let stu;
+    // 是否存在这个数据名 
+    if (history) {
+      //检测搜索记录存在时
+      stu = uni.getStorageSync(name)
+      // 将新数据加入
+      stu.unshift(data);
+    } else {
+      //不存在时
+      stu = []; //存储数据形式
+      stu.unshift(data);
+    }
+    //是否有传判断参数进来
+    if (attr) {
+      const res = new Map();
+      stu = stu.filter(stu => !res.has(stu[attr]) && res.set(stu[attr], 1))
+    } else {
+      stu = Array.from(new Set(stu))
+    }
+    // localStorage[name] = stuStr;
+    uni.setStorageSync(name, stu)
+
+  },
+
+  // 删除单个记录
+  delHistoryOne({
+    key,
+    value,
+    // id判断额属性名是字符串
+    id
+  }) {
+    // key 数据名 value 数据值 id判断额属性名是字符串
+    let name = key + 'History'
+    let stu = uni.getStorageSync(name)
+    if (stu) {
+      if (id) {
+        stu = stu.filter((a) => {
+          return a[id] !== value[id];
+        });
+      } else {
+        stu = stu.filter((a) => {
+          return a !== value;
+        });
+      }
+      if (stu.length === 0) {
+        uni.removeStorageSync(name)
+      } else {
+        uni.setStorageSync(name, stu)
+      }
+    } else {
+      return
+    }
+  },
+  // 循环里面删除单个 可以传index
+  delMapOne({
+    key,
+    index,
+  }) {
+    // key 数据名 value 数据值 id判断额属性名是字符串
+    let name = key + 'History'
+    let stu = uni.getStorageSync(name)
+    // 根据下标删除
+    if (stu) {
+     stu.splice(index,1)
+      uni.setStorageSync(name, stu)
+      if (stu.length === 0) {
+        uni.removeStorageSync(name)
+      } else {
+        uni.setStorageSync(name, stu)
+      }
+    }else{
+      return
+    }
+  },
+  // 获取记录
+  // key；储存的名字
+  getHistory(key) {
+    let name = key + 'History'
+    let arr = uni.getStorageSync(name)
+    if (arr) return arr
+    else return null
+  },
+  
+  //获取用户是否登陆
+}

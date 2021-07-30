@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "首页",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-notice-bar": "/node-modules/uview-ui/components/u-notice-bar/u-notice-bar",
+    "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast",
+    "carousel": "/components/index/carousel",
+    "img-nav": "/components/index/imgNav",
+    "rows": "/components/index/rows",
+    "raise": "/components/index/raise",
+    "sell-hot": "/components/index/sellHot",
+    "time-limit": "/components/index/timeLimit",
+    "tab-nav": "/components/index/tabNav",
+    "tab-bars": "/components/index/tabBars",
+    "go-top": "/components/goTop"
+  }
+}

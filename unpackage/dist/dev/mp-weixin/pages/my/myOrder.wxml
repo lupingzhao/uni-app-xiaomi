@@ -1,0 +1,1 @@
+<view class="myOrder data-v-23ec6558"><all-order-nav vue-id="59a0c6ae-1" index="{{index}}" class="data-v-23ec6558" bind:__l="__l"></all-order-nav><recommended vue-id="59a0c6ae-2" class="data-v-23ec6558" bind:__l="__l"></recommended></view>

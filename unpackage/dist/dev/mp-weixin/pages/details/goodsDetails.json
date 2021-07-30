@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "详情",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-back-top": "/node-modules/uview-ui/components/u-back-top/u-back-top",
+    "details-video": "/components/details/detailsVideo",
+    "goods-info": "/components/details/goodsIfo",
+    "cell": "/components/details/cell",
+    "service-list": "/components/details/serviceList",
+    "specifications": "/components/details/specifications",
+    "user-evaluation": "/components/details/userEvaluation",
+    "q-and-a": "/components/details/qAndA",
+    "intro-ext": "/components/details/introExt",
+    "recommended": "/components/details/recommended",
+    "bank": "/components/details/bank"
+  }
+}

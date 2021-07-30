@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "order-content": "/components/my/orderContent"
+  }
+}
