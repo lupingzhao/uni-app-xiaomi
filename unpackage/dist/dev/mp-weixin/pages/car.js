@@ -98,6 +98,9 @@ try {
     uEmpty: function() {
       return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-empty/u-empty */ "node-modules/uview-ui/components/u-empty/u-empty").then(__webpack_require__.bind(null, /*! uview-ui/components/u-empty/u-empty.vue */ 284))
     },
+    uButton: function() {
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-button/u-button */ "node-modules/uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! uview-ui/components/u-button/u-button.vue */ 291))
+    },
     uToast: function() {
       return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-toast/u-toast */ "node-modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! uview-ui/components/u-toast/u-toast.vue */ 181))
     }
@@ -156,7 +159,20 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var carGoods = function carGoods() {__webpack_require__.e(/*! require.ensure | components/car/carGoods */ "components/car/carGoods").then((function () {return resolve(__webpack_require__(/*! ../components/car/carGoods.vue */ 291));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommended = function recommended() {__webpack_require__.e(/*! require.ensure | components/details/recommended */ "components/details/recommended").then((function () {return resolve(__webpack_require__(/*! ../components/details/recommended.vue */ 298));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var carGoods = function carGoods() {__webpack_require__.e(/*! require.ensure | components/car/carGoods */ "components/car/carGoods").then((function () {return resolve(__webpack_require__(/*! ../components/car/carGoods.vue */ 298));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommended = function recommended() {__webpack_require__.e(/*! require.ensure | components/details/recommended */ "components/details/recommended").then((function () {return resolve(__webpack_require__(/*! ../components/details/recommended.vue */ 305));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -204,7 +220,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       title: '购物车',
       show: false,
-      data: '' };
+      data: '',
+
+
+
+
+      login: false };
+
+
 
   },
   methods: {
@@ -236,10 +259,15 @@ __webpack_require__.r(__webpack_exports__);
         title: "\u7ED3\u7B97\u6210\u529F\u5171\u8BA1".concat(a),
         type: 'success' });
 
+    },
+    // 去登陆
+    goto: function goto() {
+      uni.switchTab({
+        url: '/pages/my' });
+
     } },
 
-  mounted: function mounted() {
-  },
+  mounted: function mounted() {},
   onLoad: function onLoad() {
 
   },
@@ -247,6 +275,10 @@ __webpack_require__.r(__webpack_exports__);
     // 是数据同步
     this.getData();
     // 设置tabBar的角标
+
+    this.$store.state.user ? this.login = true : this.login = false;
+
+
 
   },
   filters: {},

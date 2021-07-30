@@ -1,7 +1,7 @@
 {
+  "component": true,
   "usingComponents": {
     "u-modal": "/node-modules/uview-ui/components/u-modal/u-modal",
     "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast"
-  },
-  "component": true
+  }
 }

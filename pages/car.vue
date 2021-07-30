@@ -1,32 +1,45 @@
 <template>
 	<view class="car">
-		<view class="" v-if="show">
-			<!-- 头部 -->
-			<view class="head1">
-				<image src="../static/static/top-bg.png" mode="" class="img"></image>
-				<view class="flex jcc head">
-					<view class="font-c-w font-s-18 font-w-7">
-						购 物 车
+		<view class="" v-if="login">
+			<view class="" v-if="show">
+				<!-- 头部 -->
+				<view class="head1">
+					<image src="../static/static/top-bg.png" mode="" class="img"></image>
+					<view class="flex jcc head">
+						<view class="font-c-w font-s-18 font-w-7">
+							购 物 车
+						</view>
 					</view>
 				</view>
+				<!-- 内容 -->
+				<view class="m-tb-25 content">
+					<carGoods @getData='getData' v-if="data" :data='data' @toast='toast'></carGoods>
+				</view>
 			</view>
-			<!-- 内容 -->
-			<view class="m-tb-25 content">
-				<carGoods @getData='getData' v-if="data" :data='data' @toast='toast'></carGoods>
+
+			<view class="empt " v-else>
+				<u-empty text="暂无数据" mode="car"></u-empty>
 			</view>
+			<view class="recommended">
+				<recommended></recommended>
+			</view>
+
 		</view>
 
-		<view class="empt " v-else>
-			<u-empty text="暂无数据" mode="car"></u-empty>
+	<!-- 未登录  -->
+		<view class="div-center" v-else>
+			<u-empty text="所谓伊人，在水一方" mode="permission">
+				<template #bottom>
+					<u-button type="warning" size="mini" @click='goto'>去登陆</u-button>
+				</template>
+			</u-empty>
 		</view>
 
-<view class="recommended">
-		<recommended></recommended>
-</view>
+		<!-- 提示 订单-->
+		<u-toast ref="uToast" />
+
 	
 
-<!-- 提示 -->
-		<u-toast ref="uToast" />
 
 
 	</view>
@@ -46,7 +59,14 @@
 			return {
 				title: '购物车',
 				show: false,
-				data: ''
+				data: '',
+				// #ifndef MP-WEIXIN
+				login: true
+				// #endif
+				// #ifdef MP-WEIXIN
+				login: false
+				// #endif
+
 			}
 		},
 		methods: {
@@ -67,21 +87,26 @@
 					this.show = false
 					// 如果没有数据就移除角标
 					uni.removeTabBarBadge({
-						index:3
+						index: 3
 					})
 				}
 				// console.log(this.$utils.getHistory('car'));
 			},
 			// 提示
-			toast(a){
+			toast(a) {
 				this.$refs.uToast.show({
 					title: `结算成功共计${a}`,
 					type: 'success',
 				})
+			},
+			// 去登陆
+			goto(){
+				uni.switchTab({
+					url:'/pages/my'
+				})
 			}
 		},
-		mounted() {
-		},
+		mounted() {},
 		onLoad() {
 
 		},
@@ -89,6 +114,10 @@
 			// 是数据同步
 			this.getData()
 			// 设置tabBar的角标
+			// #ifdef MP-WEIXIN
+			this.$store.state.user?this.login=true:this.login=false
+			
+			// #endif
 			
 		},
 		filters: {},
@@ -116,7 +145,8 @@
 		.empt {
 			height: 380rpx;
 		}
-		.recommended{
+
+		.recommended {
 			margin-bottom: 100rpx;
 		}
 	}

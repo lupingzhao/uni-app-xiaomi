@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var allOrderNav = function allOrderNav() {__webpack_require__.e(/*! require.ensure | components/my/allOrderNav */ "components/my/allOrderNav").then((function () {return resolve(__webpack_require__(/*! ../../components/my/allOrderNav.vue */ 452));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommended = function recommended() {__webpack_require__.e(/*! require.ensure | components/details/recommended */ "components/details/recommended").then((function () {return resolve(__webpack_require__(/*! ../../components/details/recommended.vue */ 298));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var allOrderNav = function allOrderNav() {__webpack_require__.e(/*! require.ensure | components/my/allOrderNav */ "components/my/allOrderNav").then((function () {return resolve(__webpack_require__(/*! ../../components/my/allOrderNav.vue */ 452));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var recommended = function recommended() {__webpack_require__.e(/*! require.ensure | components/details/recommended */ "components/details/recommended").then((function () {return resolve(__webpack_require__(/*! ../../components/details/recommended.vue */ 305));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
