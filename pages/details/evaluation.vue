@@ -21,8 +21,8 @@
 			</view>
 			<!-- 标签 -->
 			<view class="m-tb-10 flex flex-wrap p-lr-10">
-				<view class="tag-bgc mr-10 " v-for="(item,index) in data.tags" @click="comments(item.id,index)"
-					:class="slectindex===index ?'slectBgc':''">
+				<view class="tag-bgc mr-10 " v-for="(item,index2) in data.tags" :key='index2' @click="comments(item.id,index)"
+					:class="slectindex===index2 ?'slectBgc':''">
 					{{item.name}}({{item.count}})
 				</view>
 			</view>
@@ -48,7 +48,7 @@
 											<u-rate v-model="item.score" active-color="#FA3534"></u-rate>
 										</view>
 									</view>
-									<view class="m-t-5 font-s-14 font-c-gray">
+									<view class="m-t-5 font-s-14 font-c-gray" v-if="item.pid_spec">
 										已选: {{item.pid_spec}}
 									</view>
 								</view>
@@ -66,8 +66,7 @@
 							<view class="m-t-10">
 
 								<view class="flex jcsb flex-wrap">
-									<image :src="item1.img" class="img1 " v-for="(item1,index1) in item.comment_imgs"
-										:key='index1'></image>
+									<image :src="item1.img" class="img1 " v-for="(item1,index1) in item.comment_imgs" :key='index1'></image>
 
 								</view>
 							</view>
@@ -134,7 +133,7 @@
 			// 触底
 			scroll() {		
 				// 当前标签的总数
-				if (this.data1.length < this.data[this.slectindex].count) {
+				if (this.data1.length < this.data.tags[this.slectindex].count) {
 					this.page++
 					this.getData()
 				}
@@ -150,6 +149,8 @@
 			if (option.tags) {
 				this.tagid = option.tags
 				this.slectindex = Number(option.index)
+			}else{
+				this.slectindex=0
 			}
 			this.tags(option.gid)
 			this.getData()

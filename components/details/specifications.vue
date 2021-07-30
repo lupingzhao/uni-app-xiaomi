@@ -5,8 +5,8 @@
 			<template slot="title">
 				选中：
 				<text class="font-s-12 mr-5 font-c-red">
-					<text class="" v-for="(item,index) in sleData" :key='index'>{{item}}</text>
-					<text v-if="sleData[0]">X{{value}}</text>
+					<text class="" v-for="(item,index) in sleData" :key='index'>{{item}}&nbsp;</text>
+					<text class="m-l-5" v-if="sleData[0]">X{{value}}</text>
 				</text>
 
 			</template>
@@ -298,13 +298,26 @@
 			// 购物车数量角标
 			carSum() {
 				let sum
+				// #ifndef MP-WEIXIN
 				if (this.$store.state.carSum) {
 					return sum = this.$store.state.carSum.length
 				} else {
 					return sum = ''
 				}
 				return sum
-
+				// #endif
+				
+				// #ifdef MP-WEIXIN
+				
+				// #endif
+				if(this.$store.state.user){
+					if (this.$store.state.carSum) {
+						return sum = this.$store.state.carSum.length
+					} else {
+						return sum = ''
+					}
+					return sum
+				}
 			}
 		},
 		watch: {},

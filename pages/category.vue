@@ -107,20 +107,28 @@
 			this.word()
 			this.leverl2()
 			// this.$store
-			if(this.$store.state.carSum){
-				uni.setTabBarBadge({
-						text: String(this.$store.state.carSum.length),
-					// 需要添加角标的导航下标
-					index: 3
-				})
-			}
 			
 		},
 		onLoad() {
 
 		},
 		onShow() {
-
+              // #ifdef MP-WEIXIN
+              if(this.$store.state.user){		
+              	if(this.$store.state.carSum){
+              		uni.setTabBarBadge({
+              				text: String(this.$store.state.carSum.length),
+              			// 需要添加角标的导航下标
+              			index: 3
+              		})
+              	}
+              	
+              }else{
+              	uni.removeTabBarBadge({
+              		index: 3
+              	})
+              }					
+              // #endif
 		},
 		filters: {},
 		computed: {},

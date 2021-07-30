@@ -28,7 +28,7 @@
 
 	<!-- 未登录  -->
 		<view class="div-center" v-else>
-			<u-empty text="所谓伊人，在水一方" mode="permission">
+			<u-empty text="检测到用户未登录" mode="permission">
 				<template #bottom>
 					<u-button type="warning" size="mini" @click='goto'>去登陆</u-button>
 				</template>
@@ -111,12 +111,19 @@
 
 		},
 		onShow() {
+			
+			// #ifndef MP-WEIXIN
 			// 是数据同步
 			this.getData()
+			// #endif
 			// 设置tabBar的角标
 			// #ifdef MP-WEIXIN
-			this.$store.state.user?this.login=true:this.login=false
-			
+			if(this.$store.state.user){
+				this.login=true
+				this.getData()
+			}else{
+				this.login=false
+			}					
 			// #endif
 			
 		},

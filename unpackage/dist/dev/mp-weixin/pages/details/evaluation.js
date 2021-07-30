@@ -243,9 +243,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
 var _dayjs = _interopRequireDefault(__webpack_require__(/*! dayjs */ 108));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
-//
 //
 //
 //
@@ -341,9 +339,9 @@ var _default = { components: {}, props: {}, data: function data() {return { page
     tags: function tags(e) {var _this2 = this;this.$api.goods.commentTag(e).then(function (res) {_this2.data = res.data;});}, // 点标签
     comments: function comments(e, index) {this.slectindex = index;this.tagid = e;this.data1 = [];this.getData();}, // 触底
     scroll: function scroll() {// 当前标签的总数
-      if (this.data1.length < this.data[this.slectindex].count) {this.page++;this.getData();} // console.log(11)
+      if (this.data1.length < this.data.tags[this.slectindex].count) {this.page++;this.getData();} // console.log(11)
     } }, mounted: function mounted() {}, onLoad: function onLoad(option) {this.gid = option.gid; // 如果是点击标签进入评价
-    if (option.tags) {this.tagid = option.tags;this.slectindex = Number(option.index);}this.tags(option.gid);this.getData(); // console.log(option)
+    if (option.tags) {this.tagid = option.tags;this.slectindex = Number(option.index);} else {this.slectindex = 0;}this.tags(option.gid);this.getData(); // console.log(option)
     // console.log(dayjs().valueOf())
   }, onShow: function onShow() {}, filters: {}, computed: {}, watch: {} };exports.default = _default;
 

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-modal @cancel="cancel" v-model="show" content="当前为未登录状态" :mask-close-able="true" :show-cancel-button='true'
+		<u-modal  v-model="show" content="当前为未登录状态" :mask-close-able="true" :show-cancel-button='true'
 			confirm-color='#DD524D' confirm-text='去登陆' title='登陆' @confirm='toLogin'></u-modal>
 
 		<u-toast ref="uToast" />
@@ -22,12 +22,7 @@
 		methods: {
 
 			toLogin() {
-				// #ifdef MP-WEIXIN
-				this.$refs.uToast.show({
-					title: '未登录',
-					type: 'info',
-				})
-
+				// #ifdef MP-WEIXIN		
 				wx.getUserProfile({
 					desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
 					success: (res) => {
@@ -45,10 +40,10 @@
 
 			},
 			// 取消
-			cancel() {
-				this.$emit('colse')
+			// cancel() {
+			// 	this.$emit('colse')
 
-			}
+			// }
 
 		},
 		mounted() {

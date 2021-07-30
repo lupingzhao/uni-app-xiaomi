@@ -77,7 +77,7 @@
 			// 用户滑动事件
 			change(e) {
 				// console.log(e)
-				if(e.detail.current===this.data.length-1){
+				if(this.offset<5){
 					this.offset++
 					this.getData()
 				}

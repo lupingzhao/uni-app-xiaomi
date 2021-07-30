@@ -272,12 +272,19 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   onShow: function onShow() {
-    // 是数据同步
-    this.getData();
+
+
+
+
+
     // 设置tabBar的角标
 
-    this.$store.state.user ? this.login = true : this.login = false;
-
+    if (this.$store.state.user) {
+      this.login = true;
+      this.getData();
+    } else {
+      this.login = false;
+    }
 
 
   },

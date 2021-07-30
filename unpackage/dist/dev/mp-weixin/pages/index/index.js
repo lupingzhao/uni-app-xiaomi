@@ -330,20 +330,29 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getData();
     this.word();
-    // this.$store
-    if (this.$store.state.carSum) {
-      uni.setTabBarBadge({
-        text: String(this.$store.state.carSum.length),
-        // 需要添加角标的导航下标
-        index: 3 });
 
-    }
 
   },
   onLoad: function onLoad() {
 
   },
   onShow: function onShow() {
+
+    if (this.$store.state.user) {
+      if (this.$store.state.carSum) {
+        uni.setTabBarBadge({
+          text: String(this.$store.state.carSum.length),
+          // 需要添加角标的导航下标
+          index: 3 });
+
+      }
+
+    } else {
+      uni.removeTabBarBadge({
+        index: 3 });
+
+    }
+
 
   },
   onPageScroll: function onPageScroll(e) {

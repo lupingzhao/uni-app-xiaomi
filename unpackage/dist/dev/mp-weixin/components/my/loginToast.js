@@ -163,11 +163,6 @@ var _default =
 
     toLogin: function toLogin() {var _this = this;
 
-      this.$refs.uToast.show({
-        title: '未登录',
-        type: 'info' });
-
-
       wx.getUserProfile({
         desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: function success(res) {
@@ -183,13 +178,13 @@ var _default =
 
 
 
-    },
+    }
     // 取消
-    cancel: function cancel() {
-      this.$emit('colse');
+    // cancel() {
+    // 	this.$emit('colse')
 
-    } },
-
+    // }
+  },
 
   mounted: function mounted() {
 

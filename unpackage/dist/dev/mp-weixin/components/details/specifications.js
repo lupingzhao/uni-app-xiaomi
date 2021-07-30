@@ -449,13 +449,26 @@ var _default =
     // 购物车数量角标
     carSum: function carSum() {
       var sum;
-      if (this.$store.state.carSum) {
-        return sum = this.$store.state.carSum.length;
-      } else {
-        return sum = '';
-      }
-      return sum;
 
+
+
+
+
+
+
+
+
+
+
+
+      if (this.$store.state.user) {
+        if (this.$store.state.carSum) {
+          return sum = this.$store.state.carSum.length;
+        } else {
+          return sum = '';
+        }
+        return sum;
+      }
     } },
 
   watch: {} };exports.default = _default;
