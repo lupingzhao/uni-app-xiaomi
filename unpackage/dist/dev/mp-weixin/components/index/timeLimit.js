@@ -164,7 +164,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _dayjs = _interopRequireDefault(__webpack_require__(/*! dayjs */ 108));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+var _dayjs = _interopRequireDefault(__webpack_require__(/*! dayjs */ 41));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
 //
@@ -229,11 +229,15 @@ var _default = { components: {}, props: { timeLimit: { type: Object } }, data: f
         data: e });
 
 
+    },
+    d: function d() {
+      this.$utils.countdown('2021-8-1', new Date());
     } },
 
   mounted: function mounted() {
     this.countdown();
     setInterval(this.countdown, 1000);
+    // setInterval(this.d,1000)
     // console.log(this.timeLimit)
   },
   onLoad: function onLoad() {

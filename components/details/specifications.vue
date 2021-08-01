@@ -161,7 +161,7 @@
 						sum: this.value,
 					}],
 					total: total,
-					crateTime:new Date()
+					crateTime: new Date()
 				}
 				// 本地存储完成订单	 且不管重复与否				
 				this.$utils.saveHistory({
@@ -179,30 +179,37 @@
 					// url: '/pages/user/index'
 				})
 				// 要储存的数据
-				let saveData={
-						goods: this.goodsInfo,
-						gid: this.goodsInfo.gid,
-						order: this.sleData,
-						sum: this.value,
-						checked: false
-					}
-					let arrt=''
+				let saveData = {
+					goods: this.goodsInfo,
+					gid: this.goodsInfo.gid,
+					order: this.sleData,
+					sum: this.value,
+					checked: false
+				}
+				let arrt
 				// 获取购物车的数据
-				let car=this.$utils.getHistory('car') 
-				if(car){
+				let car = this.$utils.getHistory('car')
+				if (car) {
 					// 返回一个布尔值
-					let boo=car.some(a=>{
-						return JSON.stringify(a)===JSON.stringify(saveData)
-					})
-					if(boo){
-						arrt='gid'
-					}
+					car.map(a=>{
+						if(a.gid===this.goodsInfo.gid){
+							let boo = car.findIndex(a => {
+								// 当有这个数据时 就比较规格是否一致
+								return JSON.stringify(a.order) === JSON.stringify(this.sleData)
+							})
+							// console.log(boo);
+							if (boo >= 0) {
+								// 删除原本的相同数据
+								car.splice(boo, 1)
+								uni.setStorageSync('carHistory', car)
+							}
+						}
+					})				
 				}
 				//存购物车数据
 				this.$utils.saveHistory({
 					key: 'car',
 					data: saveData,
-					attr: arrt
 				})
 				// 修改角标
 				this.$store.commit('setCarSum', uni.getStorageSync('carHistory'))
@@ -224,18 +231,18 @@
 							let user = [res.userInfo.nickName, res.userInfo.avatarUrl]
 							uni.setStorageSync('user', user)
 							this.$store.commit('setUser', user)
-							if(this.type===0){
+							if (this.type === 0) {
 								this.fnAddCar()
-							}else{
+							} else {
 								this.fnToBuy()
 							}
-							
+
 						}
 					})
 				} else {
-					if(this.type===0){
+					if (this.type === 0) {
 						this.fnAddCar()
-					}else{
+					} else {
 						this.fnToBuy()
 					}
 
@@ -246,9 +253,9 @@
 
 				// #ifndef MP-WEIXIN
 				// 提示
-				if(this.type===0){
+				if (this.type === 0) {
 					this.fnAddCar()
-				}else{
+				} else {
 					this.fnToBuy()
 				}
 				// #endif
@@ -257,7 +264,7 @@
 			tobuy() {
 				this.show = true
 				this.type = 1
-				
+
 			},
 			// 步进器
 			valChange(e) {
@@ -276,7 +283,7 @@
 				})
 			},
 			// 判断数据是否在购物车存在 是数量的改变还是  规格的改变
-			
+
 		},
 		mounted() {
 			// console.log(this.list)
@@ -289,7 +296,7 @@
 			// let a=[{a:'1',b:2},'b','c']
 			// let b={a:'1',b:2}
 			// console.log(JSON.stringify(a)===JSON.stringify(b));
-			
+
 		},
 		onLoad() {},
 		onShow() {},
@@ -306,18 +313,18 @@
 				}
 				return sum
 				// #endif
-				
+
 				// #ifdef MP-WEIXIN
-				
-				// #endif
-				if(this.$store.state.user){
+				if (this.$store.state.user) {
 					if (this.$store.state.carSum) {
 						return sum = this.$store.state.carSum.length
 					} else {
 						return sum = ''
 					}
-					return sum
 				}
+				return sum
+				// #endif
+
 			}
 		},
 		watch: {},

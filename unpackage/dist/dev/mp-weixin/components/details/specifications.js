@@ -322,7 +322,7 @@ var _default =
 
     },
     // 加入购物车的方法
-    fnAddCar: function fnAddCar() {
+    fnAddCar: function fnAddCar() {var _this = this;
       // 提示
       this.$refs.uToast.show({
         title: '加入购物车成功',
@@ -337,30 +337,37 @@ var _default =
         sum: this.value,
         checked: false };
 
-      var arrt = '';
+      var arrt;
       // 获取购物车的数据
       var car = this.$utils.getHistory('car');
       if (car) {
         // 返回一个布尔值
-        var boo = car.some(function (a) {
-          return JSON.stringify(a) === JSON.stringify(saveData);
+        car.map(function (a) {
+          if (a.gid === _this.goodsInfo.gid) {
+            var boo = car.findIndex(function (a) {
+              // 当有这个数据时 就比较规格是否一致
+              return JSON.stringify(a.order) === JSON.stringify(_this.sleData);
+            });
+            // console.log(boo);
+            if (boo >= 0) {
+              // 删除原本的相同数据
+              car.splice(boo, 1);
+              uni.setStorageSync('carHistory', car);
+            }
+          }
         });
-        if (boo) {
-          arrt = 'gid';
-        }
       }
       //存购物车数据
       this.$utils.saveHistory({
         key: 'car',
-        data: saveData,
-        attr: arrt });
+        data: saveData });
 
       // 修改角标
       this.$store.commit('setCarSum', uni.getStorageSync('carHistory'));
 
     },
     // 点击确定 加入购物车
-    colse: function colse() {var _this = this;
+    colse: function colse() {var _this2 = this;
       this.show = false;
       var userInfo = this.$store.state.user;
 
@@ -374,11 +381,11 @@ var _default =
           success: function success(res) {
             var user = [res.userInfo.nickName, res.userInfo.avatarUrl];
             uni.setStorageSync('user', user);
-            _this.$store.commit('setUser', user);
-            if (_this.type === 0) {
-              _this.fnAddCar();
+            _this2.$store.commit('setUser', user);
+            if (_this2.type === 0) {
+              _this2.fnAddCar();
             } else {
-              _this.fnToBuy();
+              _this2.fnToBuy();
             }
 
           } });
@@ -429,13 +436,13 @@ var _default =
     // 判断数据是否在购物车存在 是数量的改变还是  规格的改变
   },
 
-  mounted: function mounted() {var _this2 = this;
+  mounted: function mounted() {var _this3 = this;
     // console.log(this.list)
     // console.log(this.goodsInfo)
     // 添加占位符控制选中的数据
     this.list.map(function (a) {
-      _this2.sleData.push(a.tags[0].name);
-      _this2.selectedindex.push(0);
+      _this3.sleData.push(a.tags[0].name);
+      _this3.selectedindex.push(0);
     });
     // let a=[{a:'1',b:2},'b','c']
     // let b={a:'1',b:2}
@@ -459,16 +466,16 @@ var _default =
 
 
 
-
-
       if (this.$store.state.user) {
         if (this.$store.state.carSum) {
           return sum = this.$store.state.carSum.length;
         } else {
           return sum = '';
         }
-        return sum;
       }
+      return sum;
+
+
     } },
 
   watch: {} };exports.default = _default;

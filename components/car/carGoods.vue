@@ -46,7 +46,7 @@
 						</view>
 					</u-checkbox>
 				</u-checkbox-group>
-			</view> -->
+			</view> 
 		</view>
 		<!-- 底部 -->
 		<view class="flex jcsb bottom p-10 bgc-white">

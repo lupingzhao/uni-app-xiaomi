@@ -11,24 +11,24 @@
 var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 5));
 var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 11));
 var _utils = _interopRequireDefault(__webpack_require__(/*! utils/utils.js */ 40));
-var _api = _interopRequireDefault(__webpack_require__(/*! http/api.js */ 41));
+var _api = _interopRequireDefault(__webpack_require__(/*! http/api.js */ 42));
 
 
 
-var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 44));
-
-
-
-
+var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 45));
 
 
 
 
-var _vueLazyload = _interopRequireDefault(__webpack_require__(/*! vue-lazyload */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var headNav = function headNav() {__webpack_require__.e(/*! require.ensure | components/headNav */ "components/headNav").then((function () {return resolve(__webpack_require__(/*! components/headNav.vue */ 167));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};_vue.default.use(_uviewUi.default); //引入vuex
+
+
+
+
+var _vueLazyload = _interopRequireDefault(__webpack_require__(/*! vue-lazyload */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var headNav = function headNav() {__webpack_require__.e(/*! require.ensure | components/headNav */ "components/headNav").then((function () {return resolve(__webpack_require__(/*! components/headNav.vue */ 167));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};_vue.default.use(_uviewUi.default); //引入vuex
 //把vuex定义成全局组件
 _vue.default.prototype.$store = _store.default;_vue.default.prototype.$api = _api.default;_vue.default.config.productionTip = false;_vue.default.prototype.$utils = _utils.default;_vue.default.component('headNav', headNav); // 懒加载
-_vue.default.use(_vueLazyload.default, { preLoad: 1, error: __webpack_require__(/*! ./static/error.jpg */ 47),
-  loading: __webpack_require__(/*! ./static/imgLoading.gif */ 48),
+_vue.default.use(_vueLazyload.default, { preLoad: 1, error: __webpack_require__(/*! ./static/error.jpg */ 48),
+  loading: __webpack_require__(/*! ./static/imgLoading.gif */ 49),
   attempt: 2 });
 
 
@@ -111,6 +111,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 {
   onLaunch: function onLaunch() {
+
+
   },
   onShow: function onShow() {
 

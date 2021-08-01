@@ -152,6 +152,17 @@ var _default =
       this.seclectindex = index;
       this.$emit('leverl2', id);
 
+    },
+    // 内容触底事件
+    bottom: function bottom() {
+      // console.log(++this.seclectindex);
+      var page = ++this.seclectindex;
+      if (page > this.levelData1.length - 1) {
+        page = 0;
+        this.seclectindex = 0;
+      }
+      console.log(page);
+      this.$emit('leverl2', this.levelData1[page].id);
     } },
 
   mounted: function mounted() {

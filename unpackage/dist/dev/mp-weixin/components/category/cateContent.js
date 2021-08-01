@@ -114,49 +114,55 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var goTop = function goTop() {__webpack_require__.e(/*! require.ensure | components/goTop */ "components/goTop").then((function () {return resolve(__webpack_require__(/*! ../goTop.vue */ 96));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
-  components: {},
+  components: {
+    goTop: goTop },
+
   props: {
     levelData2: {
       type: Object } },
 
 
   data: function data() {
-    return {};
+    return {
+      scrollTop: 0 };
+
   },
   methods: {
     // 去商品列表
@@ -165,6 +171,16 @@ var _default =
       uni.navigateTo({
         url: "/pages/list/goodsList?word=".concat(e) });
 
+    },
+    scroll: function scroll() {
+      // console.log(555);
+      this.scrollTop = 0;
+    },
+    // 触底
+    bottom: function bottom() {
+      this.scrollTop = 0;
+      // this.$emit('bottom')
+      // this.scroll()
     } },
 
   mounted: function mounted() {

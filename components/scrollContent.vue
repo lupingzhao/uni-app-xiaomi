@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<scroll-view scroll-y="true" style="height: 100vh;" @scrolltolower="scroll">
+		<scroll-view scroll-y="true" style="height: 100vh;" @scrolltolower="scroll" >
 			<view class="content flex flex-wrap p-lr-10 jcsb">
 				<view @click="goDetails(item1.data.goods.gid)" class="width-48 box " v-if="item1.data.goods"
 					v-for="(item1,index1) in data" :key='index1'>

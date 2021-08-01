@@ -24,9 +24,9 @@
 		<!-- 内容 -->
 		<view class="flex a-i-fs content width-100">
 			<!-- 侧边 -->
-			<side @leverl2="side"></side>
+			<side @leverl2="side" ref="side"></side>
 			<!-- 右边 内容 -->
-			<cateContent v-if="levelData2" :levelData2='levelData2'></cateContent>
+			<cateContent v-if="levelData2" :levelData2='levelData2' @bottom='bottom'></cateContent>
 		</view>
 
 		<!-- 返回顶部 -->
@@ -59,7 +59,7 @@
 			// 搜索框占位符的显示与否
 			search(e) {
 				// console.log(e.target.value)
-				this.value=e.target.value
+				this.value = e.target.value
 				if (e.target.value) {
 					this.show = false
 				} else {
@@ -69,10 +69,10 @@
 
 			},
 			// 输入框确定事件
-			goLIstanbul(){
+			goLIstanbul() {
 				// console.log(this.value);
 				uni.navigateTo({
-					url:`/pages/list/goodsList?word=${this.value}`
+					url: `/pages/list/goodsList?word=${this.value}`
 				})
 			},
 			// 占位词
@@ -100,6 +100,10 @@
 			// 出现返回顶部按钮
 			onPageScroll(e) {
 				this.scrollTop = e.scrollTop;
+			},
+			// 触底
+			bottom() {
+				this.$refs.side.bottom()
 			}
 
 		},
@@ -107,28 +111,28 @@
 			this.word()
 			this.leverl2()
 			// this.$store
-			
+
 		},
 		onLoad() {
 
 		},
 		onShow() {
-              // #ifdef MP-WEIXIN
-              if(this.$store.state.user){		
-              	if(this.$store.state.carSum){
-              		uni.setTabBarBadge({
-              				text: String(this.$store.state.carSum.length),
-              			// 需要添加角标的导航下标
-              			index: 3
-              		})
-              	}
-              	
-              }else{
-              	uni.removeTabBarBadge({
-              		index: 3
-              	})
-              }					
-              // #endif
+			// #ifdef MP-WEIXIN
+			if (this.$store.state.user) {
+				if (this.$store.state.carSum) {
+					uni.setTabBarBadge({
+						text: String(this.$store.state.carSum.length),
+						// 需要添加角标的导航下标
+						index: 3
+					})
+				}
+
+			} else {
+				uni.removeTabBarBadge({
+					index: 3
+				})
+			}
+			// #endif
 		},
 		filters: {},
 		computed: {},
@@ -146,8 +150,9 @@
 		.box-h {
 			padding: 20rpx 0;
 		}
+
 		.ipt-box {
-			background-color:rgba(245,245,245,0.4);
+			background-color: rgba(245, 245, 245, 0.4);
 
 			.ipt {
 				// background-color: #4CD964;
@@ -161,7 +166,7 @@
 			width: 90%;
 			margin: auto;
 			// background-color: #f5f5f5;
-			background-color:rgba(245,245,245,0.4);
+			background-color:rgba(245, 245, 245, 0.4);
 			height: 70rpx;
 			border-radius: 30rpx;
 			/* #ifdef MP-WEIXIN */

@@ -113,18 +113,22 @@
 					data: e,
 				});
 				// #endif
+			},
+			d(){
+				this.$utils.countdown('2021-8-1',new Date())
 			}
 		},
 		mounted() {
 			this.countdown()
 			setInterval(this.countdown, 1000)
+			 // setInterval(this.d,1000)
 			// console.log(this.timeLimit)
 		},
 		onLoad() {
 
 		},
 		onShow() {
-
+             
 		},
 		filters: {},
 		computed: {

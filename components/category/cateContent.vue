@@ -1,6 +1,6 @@
 <template>
-	<view class="contents height-100">
-		<scroll-view scroll-y="true" style="height: 100vh;">
+	<view class="contents height-100"  >
+		<scroll-view scroll-y="true" :scroll-top="scrollTop" @scroll='scroll'  style="height: 100vh;"  @scrolltolower="bottom">
 			<!-- 头部图片 -->
 			<view class="banner m-t-5">
 				<image :src="levelData2.banner" mode="" v-if="levelData2.banner"></image>
@@ -25,6 +25,7 @@
 				</view>
 			
 			</view>
+			 <goTop :scrollTop='scrollTop'></goTop>
 		</scroll-view>
 		
 	</view>
@@ -32,15 +33,20 @@
 </template>
 
 <script>
+	import goTop from '../goTop.vue'
 	export default {
-		components: {},
+		components: {
+			goTop
+		},
 		props: {
 			levelData2: {
 				type: Object
 			}
 		},
 		data() {
-			return {}
+			return {
+				scrollTop:0
+			}
 		},
 		methods: {
 			// 去商品列表
@@ -49,6 +55,16 @@
 				uni.navigateTo({
 					url:`/pages/list/goodsList?word=${e}`
 				})
+			},
+			scroll(){
+				// console.log(555);
+				this.scrollTop=0
+			},
+			// 触底
+			bottom(){
+				this.scrollTop=0
+				// this.$emit('bottom')
+				// this.scroll()
 			}
 		},
 		mounted() {
